@@ -31,11 +31,7 @@ main()
     }
     while(choice=='y'||choice =='Y');
 }
-/*
- *Function FIRST:
- *Compute the elements in FIRST(c) and write them
- *in Result Array.
- */
+
 void FIRST(char* Result,char c)
 {
     int i,j,k;
@@ -56,12 +52,12 @@ void FIRST(char* Result,char c)
 //Find production with X as LHS
         if(productionSet[i][0]==c)
         {
-//If X ? e is a production, then add e to FIRST(X).
+
  if(productionSet[i][2]=='$') addToResultSet(Result,'$');
-            //If X is a non-terminal, and X ? Y1 Y2 … Yk
+            //If X is a non-terminal, and X ? Y1 Y2 â€¦ Yk
             //is a production, then add a to FIRST(X)
             //if for some i, a is in FIRST(Yi),
-            //and e is in all of FIRST(Y1), …, FIRST(Yi-1).
+            //and e is in all of FIRST(Y1), â€¦, FIRST(Yi-1).
       else
             {
                 j=2;
@@ -77,7 +73,7 @@ void FIRST(char* Result,char c)
                          foundEpsilon=1;
                          break;
                      }
-                 //No e found, no need to check next element
+               
                  if(!foundEpsilon)
                      break;
                  j++;
@@ -87,10 +83,7 @@ void FIRST(char* Result,char c)
 }
     return ;
 }
-/* addToResultSet adds the computed
- *element to result set.
- *This code avoids multiple inclusion of elements
-  */
+
 void addToResultSet(char Result[],char val)
 {
     int k;
